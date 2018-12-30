@@ -1,10 +1,16 @@
 from bottle import run, route, view
 from datetime import datetime as dt
 from random import random
-from horoscope import generate_prophecies
+from horoscope.horoscope import generate_prophecies
+import os
 
 
 @route("/")
+def index():
+    return "<h1>Success!</h1>"
+
+
+@route("/check")
 @view("predictions")
 def index():
 	now = dt.now()
@@ -21,9 +27,7 @@ def index():
 
 @route("/api/test")
 def api_test():
- 	return {
- 		"test_passed": True
- 	}
+	return {"test_passed": True}
 
 
 @route("/api/forecast")
@@ -31,9 +35,7 @@ def api_forecast():
 	pass
 
 
-run(
-	host="localhost",
-	port=8080,
-	debug=True,
-	autoreload=True,
-)
+if os.environ.get('APP_LOCATION') == 'heroku':
+	run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+else:
+	run(host='localhost', port=8080, debug=True)

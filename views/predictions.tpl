@@ -18,16 +18,15 @@
 	<body>
 		<div class="container">
 		<h1 id="main_header">Ваши предсказания на  {{date }}</h1>
-		<div class="column">
-			<div class="row" id="p-1"></div>
-			<div class="row" id="p-2"></div>
-			<div class="row" id="p-3"></div>
-			<div class="row" id="p-4"></div>
-			<div class="row" id="p-5"></div>			
-			<div class="row" id="p-6"></div>
-		</div>
+			<div class="row">
+				<div class="col-4" id="p-1"></div>
+				<div class="col-4" id="p-2"></div>
+				<div class="col-4" id="p-3"></div>
+				<div class="col-4" id="p-4"></div>
+				<div class="col-4" id="p-5"></div>
+				<div class="col-4" id="p-6"></div>
+			</div>
 
-			<hr><a href=about.html>О реализации</a>
 		</div>
 	</body>
 
